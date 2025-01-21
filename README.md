@@ -1,3 +1,7 @@
+## 优化下载
+> 下载失败之后，只需要把原正在下载失败的文件删掉，然后再运行download.sh即可，而不要删除全部文件
+
+
 The dataset is available from both cloudflare and the Airlab server! Thank [Scaled Foundation](https://scaledfoundations.ai/) for the support! 
 If anyone or any research group is interested in hosting our dataset, please contact wenshanw@andrew.cmu.edu. 
 
