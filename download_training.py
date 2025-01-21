@@ -2,6 +2,7 @@ from os import system, mkdir
 import argparse
 from os.path import isdir, isfile, join
 from colorama import Fore, Style
+import os
 
 def print_error(msg):
     print(Fore.RED + msg + Style.RESET_ALL)
@@ -75,8 +76,18 @@ class AirLabDownloader(object):
     def download(self, filelist, destination_path):
         target_filelist = []
 
+        print("filelist -> {}".format(filelist))
+
+        has_download = os.listdir(destination_path)
+        print("has_download -> {}".format(has_download))
+
         for source_file_name in filelist:
             target_file_name = join(destination_path, source_file_name.replace('/', '_'))
+            name = target_file_name.split("/")[-1]
+            if(name in has_download):
+                print("name->{}".format(name))
+                continue
+
             target_filelist.append(target_file_name)
             print('--')
             if isfile(target_file_name):
