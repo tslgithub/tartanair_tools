@@ -268,7 +268,12 @@ if __name__ == '__main__':
     # download_from_cloudflare_r2(s3, downloadlist, outdir, bucket_name)
     res, downloadfilelist = downloader.download(downloadlist, outdir)
 
+
     if args.unzip:
+        if(len(downloadfilelist)==0):
+            for file in  os.listdir(outdir):
+                downloadfilelist.append(os.path.join(outdir,file))
+        
         unzip_files(downloadfilelist, outdir)
     # for fileurl in downloadlist:
     #     zf = fileurl.split('/')
